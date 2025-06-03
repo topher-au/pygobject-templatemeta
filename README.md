@@ -157,7 +157,22 @@ widgets in a graphical editor, which can then export the design to an XML
 template definition.
 
 
-### Python code
+#### example_window.ui
+```xml
+<?xml version="1.0" encoding="utf-8">
+<interface>
+	<template class="ExampleWindow" parent="GtkWindow">
+		<child>
+			<object class="GtkButton" id="example_button">
+				<property name="label">Example Button</property>
+				<signal name="click" handler="on_example_button_clicked" />
+			</object>
+		</child>
+	</template>
+</interface>
+```
+
+#### example_window.py
 ```python
 from gi.repository import Gtk
 from pygobject_templatemeta import TemplateMeta
@@ -172,20 +187,6 @@ class ExampleWindow(Gtk.Window, metaclass=TemplateMeta,
 		...
 ```
 
-### Template code
-```xml
-<?xml version="1.0" encoding="utf-8">
-<interface>
-	<template class="ExampleWindow" parent="GtkWindow">
-		<child>
-			<object class="GtkButton" id="example_button">
-				<property name="label">Example Button</property>
-				<signal name="click" handler="on_example_button_clicked" />
-			</object>
-		</child>
-	</template>
-</interface>
-```
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
